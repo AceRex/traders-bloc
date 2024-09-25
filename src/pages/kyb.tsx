@@ -80,7 +80,7 @@ function KYB() {
             </div>
           </div>
           <div className="flex flex-row items-end place-content-end justify-end">
-            <Button text="Submit" color="secondary" className="lg:w-[20%]"/>
+            <Button text="Submit" color="secondary" className="lg:w-[20%]" onClick={() => navigate('/invoice_submit')}/>
           </div>
         </div>
       </div>

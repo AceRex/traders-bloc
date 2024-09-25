@@ -1,0 +1,89 @@
+// import { useNavigate } from "react-router-dom";
+import Button from "../components/form/button";
+import FormGroup from "../components/form/formgroup";
+import Input from "../components/form/input";
+import SignupHeader from "../components/headers/signupHeader";
+import Subtext from "../components/subtext";
+
+function InvoiceSubmit() {
+  //   const navigate = useNavigate();
+  return (
+    <>
+      <SignupHeader />
+      <div className="w-full h-full lg:w-[80%] m-auto p-8 flex flex-col items-center justify-center mb-4">
+        <p className="max-md:text-2xl lg:text-3xl font-extrabold max-md:text-center max-sm:tracking-tighter lg:tracking-tight">
+          Submit an invoice
+        </p>
+        <div className="max-md:w-full lg:w-[60%] flex flex-col gap-8 mt-8">
+          <Input
+            type="select"
+            isMultiSelect
+            label={"Select a company"}
+            onChange={() => {}}
+            subText="You can submit invoices for multiple companies"
+          />
+          <div>
+            <p className="max-md:text-lg mb-2 lg:text-xl font-extrabold max-md:text-center max-sm:tracking-tighter lg:tracking-tight">
+              Upload your invoice
+            </p>
+            <Subtext
+              text=" Supported file types: .pdf, .jpg, .png"
+              className="mb-4"
+            />
+            <Button
+              text="Upload files"
+              color="primary"
+              className="lg:w-[50%]"
+            />
+          </div>
+          <div>
+            <p className="max-md:text-lg mb-2 lg:text-xl font-extrabold max-md:text-center max-sm:tracking-tighter lg:tracking-tight">
+              Invoice breakdown
+            </p>
+            <Input
+              type="text"
+              placeholder="Invoice  number"
+              onChange={() => {}}
+            />
+            <Input
+              type="text"
+              placeholder="Description  of goods or services"
+              onChange={() => {}}
+            />
+            <FormGroup>
+              <Input type="text" placeholder="Quantity" onChange={() => {}} />
+              <Input
+                type="text"
+                placeholder="Price  per unit"
+                onChange={() => {}}
+              />
+            </FormGroup>
+            <FormGroup>
+              <Input type="text" placeholder="Total price" onChange={() => {}} />
+              <Input
+                type="text"
+                placeholder="Payment  terms (e.g. 30 days)"
+                onChange={() => {}}
+              />
+            </FormGroup>
+            <Input
+              type="text"
+              placeholder="Supply  due date (optional)"
+              onChange={() => {}}
+            />
+            <Input
+            label={"I confirm that the information provided is correct."}
+            type="checkbox"
+            onChange={() => {}}
+          />
+          </div>
+          <div className="flex flex-row items-end place-content-end justify-end">
+            <Button text="Submit" color="secondary" className="lg:w-[20%]" />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default InvoiceSubmit;

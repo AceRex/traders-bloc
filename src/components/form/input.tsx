@@ -13,7 +13,7 @@ function Input({
   onChange,
   isMultiSelect = false,
 }: {
-  label: string;
+  label?: string;
   inputWidth?: string;
   type?: string;
   subText?: string;
@@ -59,7 +59,7 @@ function Input({
           type={type}
           value={value as string}
           onChange={onChange}
-          className={`bg-bg_light p-2 rounded-xl focus:outline focus:outline-secondary ${
+          className={`bg-bg_light p-4 px-4 placeholder:text-sm rounded-xl focus:outline focus:outline-secondary ${
             inputWidth ? inputWidth : "w-full"
           }`}
           placeholder={placeholder}
@@ -69,7 +69,7 @@ function Input({
     );
   } else if (type === "textarea") {
     inputElement = (
-      <div className="flex flex-col gap-2 mb-7">
+      <div className="flex flex-col px-4 gap-2 mb-7">
         <label className="text-sm text-text">{label}</label>
         <textarea
           rows={rows}
@@ -142,7 +142,7 @@ function Input({
     );
   } else if (type === "checkbox") {
     inputElement = (
-      <div className="flex items-center justify-center  gap-2 mb-7">
+      <div className="flex px-4 gap-2 mb-7">
         <input
           type="checkbox"
           id="terms"
@@ -150,8 +150,11 @@ function Input({
           // onChange={handleCheckboxChange}
           className="mr-2 h-4 w-4 text-secondary bg-light border-text_light rounded focus:ring-secondary"
         />
-        <label htmlFor="terms" className="max-md:text-xs lg:text-sm text-text_light">
-         {label}
+        <label
+          htmlFor="terms"
+          className="max-md:text-xs lg:text-sm text-text_light"
+        >
+          {label}
         </label>
       </div>
     );
@@ -161,7 +164,7 @@ function Input({
 }
 
 Input.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   inputWidth: PropTypes.string,
   type: PropTypes.oneOf(["text", "password", "textarea", "select"]).isRequired,
   subText: PropTypes.string,
