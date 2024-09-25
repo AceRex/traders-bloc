@@ -1,4 +1,4 @@
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from "../components/form/button";
 import FormGroup from "../components/form/formgroup";
 import Input from "../components/form/input";
@@ -6,7 +6,7 @@ import SignupHeader from "../components/headers/signupHeader";
 import Subtext from "../components/subtext";
 
 function InvoiceSubmit() {
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <>
       <SignupHeader />
@@ -91,7 +91,12 @@ function InvoiceSubmit() {
             />
           </div>
           <div className="flex flex-row items-end place-content-end justify-end">
-            <Button text="Submit" color="secondary" className="lg:w-[20%]" />
+            <Button
+              text="Submit"
+              color="secondary"
+              className="lg:w-[20%]"
+              onClick={() => navigate("/milestone")}
+            />
           </div>
         </div>
       </div>

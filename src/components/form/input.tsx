@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React, { useState } from "react";
+import { BsCurrencyDollar } from "react-icons/bs";
 
 function Input({
   label,
@@ -12,7 +13,6 @@ function Input({
   value,
   onChange,
   isMultiSelect = false,
-  className,
 }: {
   label?: string;
   inputWidth?: string;
@@ -22,7 +22,7 @@ function Input({
   rows?: number;
   options?: { value: string; label: string }[];
   value?: string | string[];
-  className?: string,
+  className?: string;
   onChange: (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -53,7 +53,7 @@ function Input({
 
   let inputElement;
 
-  if (type === "text" || type === "password") {
+  if (type === "text" || type === "password" || type === "date") {
     inputElement = (
       <div className="flex flex-col gap-2 mb-7">
         <label className="text-sm text-text">{label}</label>
@@ -69,9 +69,31 @@ function Input({
         {subText && <p className="text-xs text-text_light">{subText}</p>}
       </div>
     );
+  } else if (type === "currency") {
+    inputElement = (
+      <div className="flex flex-col gap-2 mb-7">
+        <label className="text-sm text-text">{label}</label>
+        <div className="flex flex-row items-center justify-between bg-bg_light rounded-xl focus:outline focus:outline-secondary">
+          <input
+            type={"number"}
+            value={value as string}
+            onChange={onChange}
+            className={`p-4 px-4 bg-transparent placeholder:text-sm outline-none ${
+              inputWidth ? inputWidth : "w-[90%]"
+            }`}
+            placeholder={"$0.00"}
+          />
+          <div className="w-[10%]">
+            <BsCurrencyDollar size={25} />
+          </div>
+        </div>
+
+        {subText && <p className="text-xs text-text_light">{subText}</p>}
+      </div>
+    );
   } else if (type === "textarea") {
     inputElement = (
-      <div className="flex flex-col px-4 gap-2 mb-7">
+      <div className="flex flex-col gap-2 mb-7">
         <label className="text-sm text-text">{label}</label>
         <textarea
           rows={rows}
