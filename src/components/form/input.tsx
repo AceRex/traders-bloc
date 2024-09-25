@@ -53,7 +53,7 @@ function Input({
 
   let inputElement;
 
-  if (type === "text" || type === "password" || type === "date") {
+  if (type === "text" || type === "password" || type === "date" || type === "email" || type === "number") {
     inputElement = (
       <div className="flex flex-col gap-2 mb-7">
         <label className="text-sm text-text">{label}</label>

@@ -1,5 +1,3 @@
-import React from "react";
-
 function SignupHeader() {
   return (
     <div className="border-b border-b-bg-light px-8 p-2">
