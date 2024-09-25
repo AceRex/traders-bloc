@@ -10,6 +10,8 @@ module.exports = {
         text: "#141414",
         text_light: "#7b7b7b",
         bg_light: "#ededed",
+        success: "#098708",
+        danger: "#e82109",
       },
     },
   },

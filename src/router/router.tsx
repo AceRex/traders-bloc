@@ -4,16 +4,16 @@ import {
   Route,
 } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import Loading from "../pages/loading";
-import KYB from "../pages/kyb";
-import InvoiceSubmit from "../pages/invoiceSubmit";
-import Milestones from "../pages/milestones";
-import FundingRequest from "../pages/fundingRequest";
-import Transaction from "../pages/transaction";
-import Profile from "../pages/profile";
-import Dashboard from "../pages/dashboard";
 
 const SignUp = lazy(() => import("../pages/signup"));
+const Dashboard = lazy(() => import("../pages/dashboard"));
+const Profile = lazy(() => import("../pages/profile"));
+const Transaction = lazy(() => import("../pages/transaction"));
+const FundingRequest = lazy(() => import("../pages/fundingRequest"));
+const Milestones = lazy(() => import("../pages/milestones"));
+const InvoiceSubmit = lazy(() => import("../pages/invoiceSubmit"));
+const KYB = lazy(() => import("../pages/../pages/kyb"));
+const Loading = lazy(() => import("../pages/loading"));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,6 +23,14 @@ const router = createBrowserRouter(
         element={
           <Suspense fallback={<Loading />}>
             <Dashboard />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/sign-up"
+        element={
+          <Suspense fallback={<Loading />}>
+            <SignUp />
           </Suspense>
         }
       />

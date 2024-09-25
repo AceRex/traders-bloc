@@ -1,15 +1,16 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../components/form/input";
 import Button from "../components/form/button";
 import FormGroup from "../components/form/formgroup";
 import { LuWatch } from "react-icons/lu";
 import { CiCircleCheck, CiMoneyBill } from "react-icons/ci";
+import MainHeader from "../components/headers/mainHeader";
 
 function Milestones() {
   const navigate = useNavigate();
   return (
     <>
+    <MainHeader />
       <div className="w-full h-full lg:w-[80%] m-auto p-8 flex flex-col items-center justify-center mb-4">
         <p className="max-md:text-2xl lg:text-3xl font-extrabold max-md:text-center max-sm:tracking-tighter lg:tracking-tight">
           Set up milestones for invoice #INV-001

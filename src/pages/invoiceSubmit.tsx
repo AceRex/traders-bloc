@@ -2,15 +2,15 @@ import { useNavigate } from "react-router-dom";
 import Button from "../components/form/button";
 import FormGroup from "../components/form/formgroup";
 import Input from "../components/form/input";
-import SignupHeader from "../components/headers/signupHeader";
 import Subtext from "../components/subtext";
 import Checkbox from "../components/checkbox";
+import MainHeader from "../components/headers/mainHeader";
 
 function InvoiceSubmit() {
   const navigate = useNavigate();
   return (
     <>
-      <SignupHeader />
+      <MainHeader />
       <div className="w-full h-full lg:w-[80%] m-auto p-8 flex flex-col items-center justify-center mb-4">
         <p className="max-md:text-2xl lg:text-3xl font-extrabold max-md:text-center max-sm:tracking-tighter lg:tracking-tight">
           Submit an invoice
