@@ -51,20 +51,33 @@ function InvoiceSubmit() {
               onChange={() => {}}
             />
             <FormGroup>
-              <Input type="text" placeholder="Quantity" onChange={() => {}} />
-              <Input
-                type="text"
-                placeholder="Price  per unit"
-                onChange={() => {}}
-              />
+              <div className="w-2/4">
+                <Input type="text" placeholder="Quantity" onChange={() => {}} />
+              </div>
+              <div className="w-2/4">
+                <Input
+                  type="text"
+                  placeholder="Price  per unit"
+                  onChange={() => {}}
+                />
+              </div>
             </FormGroup>
             <FormGroup>
-              <Input type="text" placeholder="Total price" onChange={() => {}} />
-              <Input
-                type="text"
-                placeholder="Payment  terms (e.g. 30 days)"
-                onChange={() => {}}
-              />
+              <div className="w-2/4">
+                <Input
+                  type="text"
+                  placeholder="Total price"
+                  onChange={() => {}}
+                />
+              </div>
+
+              <div className="w-2/4">
+                <Input
+                  type="text"
+                  placeholder="Payment  terms (e.g. 30 days)"
+                  onChange={() => {}}
+                />
+              </div>
             </FormGroup>
             <Input
               type="text"
@@ -72,10 +85,10 @@ function InvoiceSubmit() {
               onChange={() => {}}
             />
             <Input
-            label={"I confirm that the information provided is correct."}
-            type="checkbox"
-            onChange={() => {}}
-          />
+              label={"I confirm that the information provided is correct."}
+              type="checkbox"
+              onChange={() => {}}
+            />
           </div>
           <div className="flex flex-row items-end place-content-end justify-end">
             <Button text="Submit" color="secondary" className="lg:w-[20%]" />

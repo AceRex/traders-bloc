@@ -12,6 +12,7 @@ function Input({
   value,
   onChange,
   isMultiSelect = false,
+  className,
 }: {
   label?: string;
   inputWidth?: string;
@@ -21,6 +22,7 @@ function Input({
   rows?: number;
   options?: { value: string; label: string }[];
   value?: string | string[];
+  className?: string,
   onChange: (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
