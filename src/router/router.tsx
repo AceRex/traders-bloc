@@ -3,13 +3,21 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import Signup from "../pages/signup";
+import { lazy, Suspense } from "react";
+import Loading from "../pages/loading";
+
+const Signup = lazy(() => import("../pages/signup"));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    //   <Route path="/" element={<Root />}>
-    <Route path="/" element={<Signup />} />
-    //   </Route>
+    <Route
+      path="/"
+      element={
+        <Suspense fallback={<Loading />}>
+          <Signup />
+        </Suspense>
+      }
+    />
   )
 );
 export default router;
