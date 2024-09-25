@@ -11,6 +11,7 @@ import Milestones from "../pages/milestones";
 import FundingRequest from "../pages/fundingRequest";
 import Transaction from "../pages/transaction";
 import Profile from "../pages/profile";
+import Dashboard from "../pages/dashboard";
 
 const SignUp = lazy(() => import("../pages/signup"));
 
@@ -21,7 +22,7 @@ const router = createBrowserRouter(
         path="/"
         element={
           <Suspense fallback={<Loading />}>
-            <SignUp />
+            <Dashboard />
           </Suspense>
         }
       />
