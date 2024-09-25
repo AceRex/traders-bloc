@@ -61,7 +61,7 @@ function Input({
           type={type}
           value={value as string}
           onChange={onChange}
-          className={`bg-bg_light p-4 px-4 placeholder:text-sm rounded-xl focus:outline focus:outline-secondary ${
+          className={`bg-bg_light p-3 px-4 placeholder:text-sm rounded-xl focus:outline focus:outline-secondary ${
             inputWidth ? inputWidth : "w-full"
           }`}
           placeholder={placeholder}

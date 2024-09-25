@@ -66,7 +66,7 @@ function FundingRequest() {
               text="Submit request"
               color="secondary"
               className="lg:w-[30%]"
-              onClick={() => navigate("/milestone")}
+              onClick={() => navigate("/transaction_tracking")}
             />
           </div>
         </div>

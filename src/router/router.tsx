@@ -9,6 +9,7 @@ import KYB from "../pages/kyb";
 import InvoiceSubmit from "../pages/invoiceSubmit";
 import Milestones from "../pages/milestones";
 import FundingRequest from "../pages/fundingRequest";
+import Transaction from "../pages/transaction";
 
 const SignUp = lazy(() => import("../pages/signup"));
 
@@ -52,6 +53,14 @@ const router = createBrowserRouter(
         element={
           <Suspense fallback={<Loading />}>
             <FundingRequest />
+          </Suspense>
+        }
+      />{" "}
+      <Route
+        path="/transaction_tracking"
+        element={
+          <Suspense fallback={<Loading />}>
+            <Transaction />
           </Suspense>
         }
       />

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../components/form/button";
 import Input from "../components/form/input";
 import SignupHeader from "../components/headers/signupHeader";
+import Checkbox from "../components/checkbox";
 
 function Signup() {
   const navigate = useNavigate();
@@ -22,11 +23,13 @@ function Signup() {
           />
           <Input label={"Company details"} onChange={() => {}} />
           <Input label={"Industry"} type="textarea" onChange={() => {}} />
-          <Input
-            label={" I agree to the terms of service and privacy policy."}
-            type="checkbox"
-            onChange={() => {}}
-          />
+
+          <div className="flex flex-row gap-3 my-3">
+            <Checkbox />
+            <p className="text-text_light">
+              I agree to the terms of service and privacy policy.
+            </p>
+          </div>
           <Button text="Create account" onClick={() => navigate("/kyb")} />
           <p className="max-md:text-xs lg:text-sm text-text_light m-2 text-center">
             By creating an account, you agree to our Terms of Service and

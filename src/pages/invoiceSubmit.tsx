@@ -4,6 +4,7 @@ import FormGroup from "../components/form/formgroup";
 import Input from "../components/form/input";
 import SignupHeader from "../components/headers/signupHeader";
 import Subtext from "../components/subtext";
+import Checkbox from "../components/checkbox";
 
 function InvoiceSubmit() {
   const navigate = useNavigate();
@@ -84,11 +85,12 @@ function InvoiceSubmit() {
               placeholder="Supply  due date (optional)"
               onChange={() => {}}
             />
-            <Input
-              label={"I confirm that the information provided is correct."}
-              type="checkbox"
-              onChange={() => {}}
-            />
+            <div className="flex flex-row gap-3 my-3">
+            <Checkbox />
+            <p className="text-text_light">
+              I agree to the terms of service and privacy policy.
+            </p>
+          </div>
           </div>
           <div className="flex flex-row items-end place-content-end justify-end">
             <Button
