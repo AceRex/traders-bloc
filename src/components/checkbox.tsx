@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { BiCheck } from "react-icons/bi";
 
 const Checkbox = () => {
