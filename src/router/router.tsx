@@ -5,14 +5,23 @@ import {
 } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
+// eslint-disable-next-line react-refresh/only-export-components
 const SignUp = lazy(() => import("../pages/signup"));
+// eslint-disable-next-line react-refresh/only-export-components
 const Dashboard = lazy(() => import("../pages/dashboard"));
+// eslint-disable-next-line react-refresh/only-export-components
 const Profile = lazy(() => import("../pages/profile"));
+// eslint-disable-next-line react-refresh/only-export-components
 const Transaction = lazy(() => import("../pages/transaction"));
+// eslint-disable-next-line react-refresh/only-export-components
 const FundingRequest = lazy(() => import("../pages/fundingRequest"));
+// eslint-disable-next-line react-refresh/only-export-components
 const Milestones = lazy(() => import("../pages/milestones"));
+// eslint-disable-next-line react-refresh/only-export-components
 const InvoiceSubmit = lazy(() => import("../pages/invoiceSubmit"));
+// eslint-disable-next-line react-refresh/only-export-components
 const KYB = lazy(() => import("../pages/../pages/kyb"));
+// eslint-disable-next-line react-refresh/only-export-components
 const Loading = lazy(() => import("../pages/loading"));
 
 const router = createBrowserRouter(
