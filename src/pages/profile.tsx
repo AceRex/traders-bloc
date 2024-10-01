@@ -3,8 +3,11 @@ import MainHeader from "../components/headers/mainHeader";
 import Tab from "../components/tab";
 import FormGroup from "../components/form/formgroup";
 import Button from "../components/form/button";
+import { useSelector } from "react-redux";
 
 function Profile() {
+  const userDetails = useSelector((state) => state.auth.userDetails)
+
   const tabs = [
     {
       title: "Your Profile",
@@ -51,6 +54,7 @@ function Profile() {
               <Input
                 type="email"
                 label="Email"
+                value={userDetails?.email}
                 placeholder="john.doe@company.com"
                 onChange={() => {}}
               />

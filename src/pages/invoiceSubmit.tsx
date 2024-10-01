@@ -5,9 +5,34 @@ import Input from "../components/form/input";
 import Subtext from "../components/subtext";
 import Checkbox from "../components/checkbox";
 import MainHeader from "../components/headers/mainHeader";
+import { useState } from "react";
+import { invoiceSubmit } from "../redux/invoice";
+import { useDispatch } from "react-redux";
 
 function InvoiceSubmit() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [company, setCompany] = useState();
+  const [invoiceupload, setInvoiceupload] = useState();
+  const [invoiceNumber, setInvoiceNumber] = useState();
+  const [desc, setDesc] = useState();
+  const [qty, setQty] = useState();
+  const [price, setPrice] = useState();
+
+  const handleSubmitInvoice = () => {
+    const data = {
+      company,
+      fileUrl: invoiceupload,
+      invoiceNumber,
+      description: desc,
+      quantity: qty,
+      pricePerUnit: price,
+    };
+
+    dispatch(invoiceSubmit(data));
+
+    navigate("/milestone");
+  };
   return (
     <>
       <MainHeader />
@@ -20,7 +45,8 @@ function InvoiceSubmit() {
             type="select"
             isMultiSelect
             label={"Select a company"}
-            onChange={() => {}}
+            value={company}
+            onChange={(e) => setCompany(e.target.value)}
             subText="You can submit invoices for multiple companies"
           />
           <div>
@@ -31,10 +57,11 @@ function InvoiceSubmit() {
               text=" Supported file types: .pdf, .jpg, .png"
               className="mb-4"
             />
-            <Button
-              text="Upload files"
-              color="primary"
+            <input
+              type="file"
+              value={invoiceupload}
               className="lg:w-[50%]"
+              onChange={(e) => setInvoiceupload(e.target.value)}
             />
           </div>
           <div>
@@ -44,22 +71,30 @@ function InvoiceSubmit() {
             <Input
               type="text"
               placeholder="Invoice  number"
-              onChange={() => {}}
+              value={invoiceNumber}
+              onChange={(e) => setInvoiceNumber(e.target.value)}
             />
             <Input
               type="text"
               placeholder="Description  of goods or services"
-              onChange={() => {}}
+              value={desc}
+              onChange={(e) => setDesc(e.target.value)}
             />
             <FormGroup>
               <div className="w-2/4">
-                <Input type="text" placeholder="Quantity" onChange={() => {}} />
+                <Input
+                  type="text"
+                  value={qty}
+                  placeholder="Quantity"
+                  onChange={(e) => setQty(e.target.value)}
+                />
               </div>
               <div className="w-2/4">
                 <Input
                   type="text"
+                  value={price}
                   placeholder="Price  per unit"
-                  onChange={() => {}}
+                  onChange={(e) => setPrice(e.target.value)}
                 />
               </div>
             </FormGroup>
@@ -86,18 +121,18 @@ function InvoiceSubmit() {
               onChange={() => {}}
             />
             <div className="flex flex-row gap-3 my-3">
-            <Checkbox />
-            <p className="text-text_light">
-              I agree to the terms of service and privacy policy.
-            </p>
-          </div>
+              <Checkbox />
+              <p className="text-text_light">
+                I agree to the terms of service and privacy policy.
+              </p>
+            </div>
           </div>
           <div className="flex flex-row items-end place-content-end justify-end">
             <Button
               text="Submit"
               color="secondary"
               className="lg:w-[20%]"
-              onClick={() => navigate("/milestone")}
+              onClick={handleSubmitInvoice}
             />
           </div>
         </div>

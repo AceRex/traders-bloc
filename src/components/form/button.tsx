@@ -29,9 +29,9 @@ function Button({
   } ${className}`;
 
   return (
-    <div className={combinedStyle} onClick={onClick}>
+    <button className={combinedStyle} onClick={onClick}>
       {text}
-    </div>
+    </button>
   );
 }
 

@@ -1,5 +1,20 @@
-function Protecteroute() {
-  return <div>Protecteroute</div>;
-}
+import { ReactNode } from "react";
+import { Navigate } from "react-router-dom";
 
-export default Protecteroute;
+const ProtectedRoute = ({
+  isAuthenticated,
+  redirectPath = "/sign-up",
+  children,
+}: {
+  isAuthenticated: boolean;
+  redirectPath: string;
+  children: ReactNode;
+}) => {
+  if (!isAuthenticated) {
+    return <Navigate to={redirectPath} replace />;
+  }
+
+  return children;
+};
+
+export default ProtectedRoute;

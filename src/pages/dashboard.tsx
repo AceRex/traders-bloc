@@ -9,9 +9,14 @@ import { LuWatch } from "react-icons/lu";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import not1 from "../assets/images/not1.png";
 import not2 from "../assets/images/not2.png";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/interface";
 
 function Dashboard() {
   const navigate = useNavigate();
+
+  const userDetails = useSelector((state: RootState) => state.auth.userDetails);
+
   return (
     <div>
       <MainHeader />
@@ -26,7 +31,11 @@ function Dashboard() {
               />
             </div>
             <div className="w-2/4 flex flex-col place-content-center items-center">
-              <p className="font-black text-6xl">Lorem Ipsum</p>
+              <p className="font-black text-6xl">
+                {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+                {/* @ts-expect-error */}
+                {userDetails?.company_details}
+              </p>
               <div className="w-[70%] my-6">
                 <Button
                   text="Submit invoice"

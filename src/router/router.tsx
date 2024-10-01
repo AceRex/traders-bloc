@@ -4,6 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import ProtectedRoute from "./protecteroute";
 
 // eslint-disable-next-line react-refresh/only-export-components
 const SignUp = lazy(() => import("../pages/signup"));
@@ -20,21 +21,13 @@ const Milestones = lazy(() => import("../pages/milestones"));
 // eslint-disable-next-line react-refresh/only-export-components
 const InvoiceSubmit = lazy(() => import("../pages/invoiceSubmit"));
 // eslint-disable-next-line react-refresh/only-export-components
-const KYB = lazy(() => import("../pages/../pages/kyb"));
+const KYB = lazy(() => import("../pages/kyb"));
 // eslint-disable-next-line react-refresh/only-export-components
 const Loading = lazy(() => import("../pages/loading"));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route
-        path="/"
-        element={
-          <Suspense fallback={<Loading />}>
-            <Dashboard />
-          </Suspense>
-        }
-      />
       <Route
         path="/sign-up"
         element={
@@ -44,51 +37,73 @@ const router = createBrowserRouter(
         }
       />
       <Route
+        path="/"
+        element={
+          <ProtectedRoute isAuthenticated={true}>
+            <Suspense fallback={<Loading />}>
+              <Dashboard />
+            </Suspense>
+          </ProtectedRoute>
+        }
+      />
+      <Route
         path="/kyb"
         element={
-          <Suspense fallback={<Loading />}>
-            <KYB />
-          </Suspense>
+          <ProtectedRoute isAuthenticated={true}>
+            <Suspense fallback={<Loading />}>
+              <KYB />
+            </Suspense>
+          </ProtectedRoute>
         }
       />{" "}
       <Route
         path="/invoice_submit"
         element={
-          <Suspense fallback={<Loading />}>
-            <InvoiceSubmit />
-          </Suspense>
+          <ProtectedRoute isAuthenticated={true}>
+            <Suspense fallback={<Loading />}>
+              <InvoiceSubmit />
+            </Suspense>
+          </ProtectedRoute>
         }
       />{" "}
       <Route
         path="/milestone"
         element={
-          <Suspense fallback={<Loading />}>
-            <Milestones />
-          </Suspense>
+          <ProtectedRoute isAuthenticated={true}>
+            <Suspense fallback={<Loading />}>
+              <Milestones />
+            </Suspense>
+          </ProtectedRoute>
         }
       />{" "}
       <Route
         path="/funding_request"
         element={
-          <Suspense fallback={<Loading />}>
-            <FundingRequest />
-          </Suspense>
+          <ProtectedRoute isAuthenticated={true}>
+            <Suspense fallback={<Loading />}>
+              <FundingRequest />
+            </Suspense>
+          </ProtectedRoute>
         }
       />{" "}
       <Route
         path="/transaction_tracking"
         element={
-          <Suspense fallback={<Loading />}>
-            <Transaction />
-          </Suspense>
+          <ProtectedRoute isAuthenticated={true}>
+            <Suspense fallback={<Loading />}>
+              <Transaction />
+            </Suspense>
+          </ProtectedRoute>
         }
       />{" "}
       <Route
         path="/profile"
         element={
-          <Suspense fallback={<Loading />}>
-            <Profile />
-          </Suspense>
+          <ProtectedRoute isAuthenticated={true}>
+            <Suspense fallback={<Loading />}>
+              <Profile />
+            </Suspense>
+          </ProtectedRoute>
         }
       />
     </>
