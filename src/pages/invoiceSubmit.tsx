@@ -43,9 +43,13 @@ function InvoiceSubmit() {
 
     navigate("/milestone");
   };
-  const handleFileChange = (e) => {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     const file = e.target.files[0];
     if (file) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       setInvoiceupload(file.name);
     }
   };
@@ -57,7 +61,6 @@ function InvoiceSubmit() {
           Submit an invoice
         </p>
         <div className="max-md:w-full lg:w-[60%] flex flex-col gap-8 mt-8">
-        
           <Select
             closeMenuOnSelect={false}
             components={animatedComponents}

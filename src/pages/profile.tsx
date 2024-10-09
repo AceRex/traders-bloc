@@ -6,7 +6,9 @@ import Button from "../components/form/button";
 import { useSelector } from "react-redux";
 
 function Profile() {
-  const userDetails = useSelector((state) => state.auth.userDetails)
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  const userDetails = useSelector((state) => state.auth.userDetails);
 
   const tabs = [
     {

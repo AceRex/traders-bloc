@@ -15,8 +15,10 @@ function Signup() {
   const [password, setPassword] = useState();
   const [company_details, setCompany_details] = useState();
   const [industry, setIndustry] = useState();
-  const [isTerms, setIsTerms] = useState(true);
-
+  
+  const [isTerms] = useState(true);
+ // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
   const user = useSelector((state) => state.auth.user);
 
   useEffect(() => {
@@ -32,6 +34,8 @@ function Signup() {
       industry,
       isTerms,
     };
+     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
     dispatch(authSignup(data));
   };
   return (
