@@ -8,30 +8,46 @@ import MainHeader from "../components/headers/mainHeader";
 import { useState } from "react";
 import { invoiceSubmit } from "../redux/invoice";
 import { useDispatch } from "react-redux";
+import Select from "react-select";
+import makeAnimated from "react-select/animated";
+
+const animatedComponents = makeAnimated();
 
 function InvoiceSubmit() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [company, setCompany] = useState();
+  // const [company, setCompany] = useState();
   const [invoiceupload, setInvoiceupload] = useState();
   const [invoiceNumber, setInvoiceNumber] = useState();
   const [desc, setDesc] = useState();
   const [qty, setQty] = useState();
   const [price, setPrice] = useState();
+  const options = [
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
+  ];
 
   const handleSubmitInvoice = () => {
     const data = {
-      company,
+      // company,
       fileUrl: invoiceupload,
       invoiceNumber,
       description: desc,
       quantity: qty,
       pricePerUnit: price,
     };
-
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     dispatch(invoiceSubmit(data));
 
     navigate("/milestone");
+  };
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setInvoiceupload(file.name);
+    }
   };
   return (
     <>
@@ -41,13 +57,13 @@ function InvoiceSubmit() {
           Submit an invoice
         </p>
         <div className="max-md:w-full lg:w-[60%] flex flex-col gap-8 mt-8">
-          <Input
-            type="select"
-            isMultiSelect
-            label={"Select a company"}
-            value={company}
-            onChange={(e) => setCompany(e.target.value)}
-            subText="You can submit invoices for multiple companies"
+        
+          <Select
+            closeMenuOnSelect={false}
+            components={animatedComponents}
+            isMulti
+            options={options}
+            className="bg-bg_light p-2 rounded-xl focus:outline focus:outline-secondary"
           />
           <div>
             <p className="max-md:text-lg mb-2 lg:text-xl font-extrabold max-md:text-center max-sm:tracking-tighter lg:tracking-tight">
@@ -59,9 +75,9 @@ function InvoiceSubmit() {
             />
             <input
               type="file"
-              value={invoiceupload}
               className="lg:w-[50%]"
-              onChange={(e) => setInvoiceupload(e.target.value)}
+              accept=".pdf,.jpg,.png"
+              onChange={handleFileChange}
             />
           </div>
           <div>
@@ -72,12 +88,16 @@ function InvoiceSubmit() {
               type="text"
               placeholder="Invoice  number"
               value={invoiceNumber}
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-expect-error
               onChange={(e) => setInvoiceNumber(e.target.value)}
             />
             <Input
               type="text"
               placeholder="Description  of goods or services"
               value={desc}
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-expect-error
               onChange={(e) => setDesc(e.target.value)}
             />
             <FormGroup>
@@ -86,6 +106,8 @@ function InvoiceSubmit() {
                   type="text"
                   value={qty}
                   placeholder="Quantity"
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-expect-error
                   onChange={(e) => setQty(e.target.value)}
                 />
               </div>
@@ -94,6 +116,8 @@ function InvoiceSubmit() {
                   type="text"
                   value={price}
                   placeholder="Price  per unit"
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-expect-error
                   onChange={(e) => setPrice(e.target.value)}
                 />
               </div>

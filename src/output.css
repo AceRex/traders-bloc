@@ -562,8 +562,68 @@ video {
   position: fixed;
 }
 
+.absolute {
+  position: absolute;
+}
+
 .relative {
   position: relative;
+}
+
+.left-0 {
+  left: 0px;
+}
+
+.top-0 {
+  top: 0px;
+}
+
+.top-20 {
+  top: 5rem;
+}
+
+.top-\[2\%\] {
+  top: 2%;
+}
+
+.top-\[10\%\] {
+  top: 10%;
+}
+
+.top-\[50\%\] {
+  top: 50%;
+}
+
+.top-\[70\%\] {
+  top: 70%;
+}
+
+.top-\[80\%\] {
+  top: 80%;
+}
+
+.top-\[90\%\] {
+  top: 90%;
+}
+
+.top-\[3rem\] {
+  top: 3rem;
+}
+
+.top-\[5rem\] {
+  top: 5rem;
+}
+
+.top-\[4rem\] {
+  top: 4rem;
+}
+
+.top-\[3\.9rem\] {
+  top: 3.9rem;
+}
+
+.top-\[3\.8rem\] {
+  top: 3.8rem;
 }
 
 .m-2 {
@@ -582,11 +642,6 @@ video {
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
-
-.my-6 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
 }
 
 .my-8 {
@@ -646,6 +701,10 @@ video {
   display: flex;
 }
 
+.grid {
+  display: grid;
+}
+
 .hidden {
   display: none;
 }
@@ -674,8 +733,8 @@ video {
   height: 100vh;
 }
 
-.h-\[20rem\] {
-  height: 20rem;
+.h-\[15rem\] {
+  height: 15rem;
 }
 
 .h-\[40px\] {
@@ -684,6 +743,14 @@ video {
 
 .h-\[40vh\] {
   height: 40vh;
+}
+
+.h-\[50\%\] {
+  height: 50%;
+}
+
+.h-\[70vh\] {
+  height: 70vh;
 }
 
 .h-full {
@@ -696,14 +763,6 @@ video {
 
 .w-1 {
   width: 0.25rem;
-}
-
-.w-1\/3 {
-  width: 33.333333%;
-}
-
-.w-1\/4 {
-  width: 25%;
 }
 
 .w-14 {
@@ -738,10 +797,6 @@ video {
   width: 20%;
 }
 
-.w-\[40\%\] {
-  width: 40%;
-}
-
 .w-\[40px\] {
   width: 40px;
 }
@@ -754,10 +809,6 @@ video {
   width: 60%;
 }
 
-.w-\[70\%\] {
-  width: 70%;
-}
-
 .w-\[80\%\] {
   width: 80%;
 }
@@ -766,13 +817,12 @@ video {
   width: 90%;
 }
 
-.w-full {
-  width: 100%;
+.w-\[98\%\] {
+  width: 98%;
 }
 
-.-translate-y-28 {
-  --tw-translate-y: -7rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+.w-full {
+  width: 100%;
 }
 
 .cursor-not-allowed {
@@ -785,6 +835,14 @@ video {
 
 .resize-none {
   resize: none;
+}
+
+.list-none {
+  list-style-type: none;
+}
+
+.grid-flow-col {
+  grid-auto-flow: column;
 }
 
 .flex-row {
@@ -835,6 +893,10 @@ video {
   justify-content: space-between;
 }
 
+.gap-0 {
+  gap: 0px;
+}
+
 .gap-1 {
   gap: 0.25rem;
 }
@@ -865,6 +927,10 @@ video {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
 }
 
 .overflow-y-scroll {
@@ -1026,11 +1092,6 @@ video {
   line-height: 2.25rem;
 }
 
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
-}
-
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -1140,6 +1201,15 @@ video {
   transition-duration: 200ms;
 }
 
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"); */
 
 * {
@@ -1246,6 +1316,10 @@ input[type="number"] {
     width: 100%;
   }
 
+  .max-md\:text-left {
+    text-align: left;
+  }
+
   .max-md\:text-center {
     text-align: center;
   }
@@ -1265,9 +1339,19 @@ input[type="number"] {
     line-height: 1.75rem;
   }
 
+  .max-md\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
   .max-md\:text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
+  }
+
+  .max-md\:text-text_light {
+    --tw-text-opacity: 1;
+    color: rgb(123 123 123 / var(--tw-text-opacity));
   }
 }
 
@@ -1277,29 +1361,30 @@ input[type="number"] {
   }
 }
 
-@media (min-width: 640px) {
-  .sm\:hidden {
-    display: none;
-  }
-}
-
-@media (min-width: 768px) {
-  .md\:hidden {
-    display: none;
-  }
-
-  .md\:w-\[60\%\] {
-    width: 60%;
-  }
-}
-
 @media (min-width: 1024px) {
+  .lg\:my-6 {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
   .lg\:block {
     display: block;
   }
 
   .lg\:hidden {
     display: none;
+  }
+
+  .lg\:h-\[20rem\] {
+    height: 20rem;
+  }
+
+  .lg\:w-1\/4 {
+    width: 25%;
+  }
+
+  .lg\:w-2\/4 {
+    width: 50%;
   }
 
   .lg\:w-\[20\%\] {
@@ -1330,6 +1415,23 @@ input[type="number"] {
     width: 90%;
   }
 
+  .lg\:w-full {
+    width: 100%;
+  }
+
+  .lg\:-translate-y-28 {
+    --tw-translate-y: -7rem;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .lg\:flex-row {
+    flex-direction: row;
+  }
+
+  .lg\:gap-8 {
+    gap: 2rem;
+  }
+
   .lg\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
@@ -1338,6 +1440,11 @@ input[type="number"] {
   .lg\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  .lg\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
   }
 
   .lg\:text-sm {

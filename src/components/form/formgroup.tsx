@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 function FormGroup({ children }: { children: ReactNode }) {
-  return <div className="flex w-full gap-4">{children}</div>;
+  return <div className="grid grid-flow-col w-full gap-3 overflow-x-auto scrollbar-hide">{children}</div>;
 }
 
 export default FormGroup;

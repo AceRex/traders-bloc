@@ -18,25 +18,25 @@ function Dashboard() {
   const userDetails = useSelector((state: RootState) => state.auth.userDetails);
 
   return (
-    <div>
+    <main>
       <MainHeader />
       <Container>
         <>
-          <div className="flex flex-row items-center gap-8">
-            <div className="overflow-hidden rounded-lg w-2/4 h-[20rem] bg-black">
+          <div className="flex lg:flex-row flex-col items-center lg:gap-8 gap-0">
+            <div className="overflow-hidden rounded-lg lg:w-2/4 w-full lg:h-[20rem] h-[15rem] bg-black">
               <img
                 src={bg}
                 alt="bg"
-                className="w-[100%] object-contain object-center -translate-y-28"
+                className="w-[100%] object-contain object-center lg:-translate-y-28"
               />
             </div>
-            <div className="w-2/4 flex flex-col place-content-center items-center">
-              <p className="font-black text-6xl">
+            <div className="lg:w-2/4 w-full flex flex-col place-content-center items-center">
+              <p className="font-black lg:text-6xl text-3xl capitalize my-4">
                 {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
                 {/* @ts-expect-error */}
                 {userDetails?.company_details}
               </p>
-              <div className="w-[70%] my-6">
+              <div className="lg:w-[70%] w-[100%] lg:my-6">
                 <Button
                   text="Submit invoice"
                   onClick={() => navigate("/invoice_submit")}
@@ -44,58 +44,58 @@ function Dashboard() {
               </div>
             </div>
           </div>
-          <p className="max-md:text-lg lg:text-xl mt-8 mb-4 font-extrabold max-md:text-center max-sm:tracking-tighter lg:tracking-tight">
+          <p className="max-md:text-md lg:text-xl max-md:text-text_light mt-8 mb-4 font-extrabold max-md:text-left text-center max-sm:tracking-tighter lg:tracking-tight">
             Quick Links
           </p>
           <FormGroup>
             <div
               onClick={() => navigate("/invoice_submit")}
-              className="flex flex-row items-center gap-4 w-1/3 border border-bg_light rounded-lg p-4 cursor-pointer"
+              className="flex flex-row items-center gap-4 w-full border border-bg_light rounded-lg p-4 px-8 cursor-pointer"
             >
-              <GoArrowRight size={30} />
-              <p className="font-bold capitalize">Submit an invoice</p>
+                <GoArrowRight size={30} />
+                <p className="font-bold capitalize max-md:text-sm">Submit an invoice</p>
             </div>
             <div
               onClick={() => navigate("/milestone")}
-              className="flex flex-row items-center gap-4 w-1/3 border border-bg_light rounded-lg p-4 cursor-pointer"
+              className="flex flex-row items-center gap-4 w-full border border-bg_light rounded-lg p-4 px-8 cursor-pointer"
             >
               <LuWatch size={30} />
-              <p className="font-bold capitalize">Track milestones</p>
+              <p className="font-bold capitalize  max-md:text-sm">Track milestones</p>
             </div>
             <div
               onClick={() => navigate("/funding_request")}
-              className="flex flex-row items-center gap-4 w-1/3 border border-bg_light rounded-lg p-4 cursor-pointer"
+              className="flex flex-row items-center gap-4 w-full border border-bg_light rounded-lg p-4 px-8 cursor-pointer"
             >
               <FaRegMoneyBillAlt size={30} />
-              <p className="font-bold capitalize">Request funding</p>
+              <p className="font-bold capitalize  max-md:text-sm">Request funding</p>
             </div>
           </FormGroup>
-          <p className="max-md:text-lg lg:text-xl mt-8 mb-4 font-extrabold max-md:text-center max-sm:tracking-tighter lg:tracking-tight">
+          <p className="max-md:text-md lg:text-xl  max-md:text-text_light mt-8 mb-4 font-extrabold max-md:text-left text-center max-sm:tracking-tighter lg:tracking-tight">
             Summary
           </p>
           <FormGroup>
-            <div className="flex flex-col gap-1 w-1/4 border border-bg_light rounded-lg p-4">
-              <p className=" capitalize text-text_light">Invoices</p>
+            <div className="flex flex-col gap-1 w-full border border-bg_light rounded-lg p-4">
+              <p className=" capitalize text-text_light h-[50%]">Invoices</p>
               <p className="font-bold text-3xl capitalize">12</p>
               <p className=" capitalize text-success">+20%</p>
             </div>
-            <div className="flex flex-col gap-1 w-1/4 border border-bg_light rounded-lg p-4">
-              <p className=" capitalize text-text_light">Funding requests</p>
+            <div className="flex flex-col gap-1 w-full border border-bg_light rounded-lg p-4">
+              <p className=" capitalize text-text_light h-[50%]">Funding requests</p>
               <p className="font-bold text-3xl capitalize">2</p>
               <p className=" capitalize text-success">-50%</p>
             </div>
-            <div className="flex flex-col gap-1 w-1/4 border border-bg_light rounded-lg p-4">
-              <p className="capitalize text-text_light">Total funded</p>
+            <div className="flex flex-col gap-1 w-full border border-bg_light rounded-lg p-4">
+              <p className="capitalize text-text_light h-[50%]">Total funded</p>
               <p className="font-bold text-3xl capitalize">$6,000</p>
               <p className=" capitalize text-success">+$2,000</p>
             </div>
-            <div className="flex flex-col gap-1 w-1/4 border border-bg_light rounded-lg p-4">
-              <p className=" capitalize text-text_light">Upcoming payments</p>
+            <div className="flex flex-col gap-1 w-full border border-bg_light rounded-lg p-4">
+              <p className=" capitalize text-text_light h-[50%]">Upcoming payments</p>
               <p className="font-bold text-3xl capitalize">1</p>
               <p className=" capitalize text-text_light">0%</p>
             </div>
           </FormGroup>
-          <p className="max-md:text-lg lg:text-xl mt-8 mb-4 font-extrabold max-md:text-center max-sm:tracking-tighter lg:tracking-tight">
+          <p className="max-md:text-md lg:text-xl  max-md:text-text_light mt-8 mb-4 font-extrabold max-md:text-left text-center max-sm:tracking-tighter lg:tracking-tight">
             Notification
           </p>
           <div className="flex flex-col gap-6">
@@ -122,7 +122,7 @@ function Dashboard() {
           </div>
         </>
       </Container>
-    </div>
+    </main>
   );
 }
 
